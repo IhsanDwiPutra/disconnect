@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://hmrjgjgp1ume"]
+
+[ext_resource type="PackedScene" uid="uid://bvvakhete5b4u" path="res://Scenes/Levels/Rooms/kamar_rian.tscn" id="1_ypwo2"]
+
+[node name="KamarRian" type="Node3D"]
+
+[node name="kamar_rian" parent="." instance=ExtResource("1_ypwo2")]

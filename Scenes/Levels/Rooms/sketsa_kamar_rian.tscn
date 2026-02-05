@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ieq2ahnb41bc"]
+
+[ext_resource type="PackedScene" uid="uid://d14sgfqcdg2y0" path="res://Art/Models/sketsa_kamar_rian.glb" id="1_7bj7h"]
+
+[node name="sketsa_kamar_rian" instance=ExtResource("1_7bj7h")]
+
+[node name="Cube_001" parent="." index="2"]
+visible = false

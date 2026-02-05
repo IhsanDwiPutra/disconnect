@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn8n27w52qbh0"]
+
+[ext_resource type="PackedScene" uid="uid://g4gbn4goqp51" path="res://Art/Models/pintu.glb" id="1_v3dsc"]
+[ext_resource type="Material" uid="uid://cjidpioktioxh" path="res://Art/Materials/kayu2_mat.tres" id="2_545nh"]
+[ext_resource type="Material" uid="uid://cgnqm7s3urnw" path="res://Art/Materials/besi_mat.tres" id="3_n2eww"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v3dsc"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_22fr2"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 0.59779996, 1, -1, 1, -1, -1, 1, 1, -1, 0.59779996, 1, -1, 0.59779996, -1, -1, 1, -1, -1, -1, -1, -1, -0.59779996, 1, -1, -1, 1, -1, -1, -1, -1, -0.59779996, -1, -1, -0.59779996, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 0.59779996, -1, -1, 1, -1, 1, 1, -1, -1, 0.59779996, -1, 0.7583, 1, -1, 1, 0.59779996, -1, -1, 1, -1, 1, 0.59779996, -1, 0.7583, -1, -1, 1, -1, -1, 1, 0.59779996, -1, 0.7583, -0.59779996, -1, 0.7583, -1, -1, 1, -0.59779996, -1, 0.7583, -0.59779996, -1, -1, -1, -1, 1, -0.59779996, -1, -1, -1, -1, -1, -0.59779996, 1, 0.7583, -1, 1, -1, -0.59779996, 1, -1, -0.59779996, 1, 0.7583, -1, 1, 1, -1, 1, -1, -1, 1, 1, -0.59779996, 1, 0.7583, 1, 1, 1, 1, 1, 1, -0.59779996, 1, 0.7583, 0.59779996, 1, 0.7583, 1, 1, 1, 0.59779996, 1, 0.7583, 0.59779996, 1, -1, 1, 1, 1, 0.59779996, 1, -1, 1, 1, -1, -0.59779996, -1, -1, -0.59779996, 1, 0.7583, -0.59779996, 1, -1, -0.59779996, -1, -1, -0.59779996, -1, 0.7583, -0.59779996, 1, 0.7583, 0.59779996, -1, -1, 0.59779996, 1, 0.7583, 0.59779996, -1, 0.7583, 0.59779996, -1, -1, 0.59779996, 1, -1, 0.59779996, 1, 0.7583, -0.59779996, 1, 0.7583, 0.59779996, -1, 0.7583, 0.59779996, 1, 0.7583, -0.59779996, 1, 0.7583, -0.59779996, -1, 0.7583, 0.59779996, -1, 0.7583)
+
+[node name="pintu" instance=ExtResource("1_v3dsc")]
+
+[node name="Cube_040" parent="." index="0"]
+material_override = ExtResource("2_545nh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_040" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_040/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_v3dsc")
+
+[node name="Cube_041" parent="." index="1"]
+material_override = ExtResource("3_n2eww")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_041" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_041/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_22fr2")
