@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1rvqhl7b6pl4"]
+
+[ext_resource type="PackedScene" uid="uid://eweu4am1b00e" path="res://Art/Models/buku_pelajaran.glb" id="1_keuh2"]
+[ext_resource type="Texture2D" uid="uid://dojc2jlqkw0gj" path="res://Art/Img/buku_pelajaran2.jpg" id="2_e5myx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7074"]
+albedo_texture = ExtResource("2_e5myx")
+uv1_scale = Vector3(3.98, 3.87, 1)
+uv1_offset = Vector3(0.5, 0.06, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5myx"]
+size = Vector3(1.6977539, 0.60858154, 1.1246338)
+
+[node name="buku_pelajaran" instance=ExtResource("1_keuh2")]
+
+[node name="Cube_008" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_t7074")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011962891, 0.23886108, 0.0022583008)
+shape = SubResource("BoxShape3D_e5myx")

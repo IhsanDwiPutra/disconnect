@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bvvakhete5b4u"]
+[gd_scene load_steps=36 format=4 uid="uid://bvvakhete5b4u"]
 
 [ext_resource type="Material" uid="uid://cqftqvr2foej3" path="res://Art/Materials/keramik_mat.tres" id="1_1tjqs"]
 [ext_resource type="PackedScene" uid="uid://775fwjt7uctf" path="res://Scenes/Prefabs/kasur.tscn" id="1_qv35m"]
@@ -11,7 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://bcm4euepuklad" path="res://Scenes/Prefabs/rak.tscn" id="7_xly2m"]
 [ext_resource type="PackedScene" uid="uid://dgh822abgmly6" path="res://Scenes/Prefabs/bantal_biasa.tscn" id="11_03ilf"]
 [ext_resource type="PackedScene" uid="uid://bn8n27w52qbh0" path="res://Scenes/Prefabs/pintu.tscn" id="11_og6qo"]
-[ext_resource type="PackedScene" uid="uid://c8jmfj7hdnvj3" path="res://Scenes/Levels/Player.tscn" id="12_og6qo"]
+[ext_resource type="PackedScene" uid="uid://b2sa5y75v5rft" path="res://Scenes/Prefabs/lampu_belajar.tscn" id="12_og6qo"]
+[ext_resource type="PackedScene" uid="uid://da7d3h7qq3ul2" path="res://Scenes/Prefabs/buku_tulis.tscn" id="13_lniri"]
+[ext_resource type="PackedScene" uid="uid://c1rvqhl7b6pl4" path="res://Scenes/Prefabs/buku_pelajaran.tscn" id="14_mlr0t"]
+[ext_resource type="PackedScene" uid="uid://bh5rmwte7x2n0" path="res://Scenes/Prefabs/buku_pelajaran2.tscn" id="15_2ya7q"]
+[ext_resource type="PackedScene" uid="uid://bve76fjntjhtt" path="res://Scenes/Prefabs/buku_pelajaran3.tscn" id="16_njx6i"]
+[ext_resource type="PackedScene" uid="uid://xcfujtt13qxb" path="res://Scenes/Prefabs/hp.tscn" id="17_b6l55"]
+[ext_resource type="AudioStream" uid="uid://dctso4748v6a" path="res://Audio/SFX/notif_hp.mp3" id="19_lcj4d"]
+[ext_resource type="Script" uid="uid://cxpiaasqkn8ay" path="res://_Scripts/Entities/PlayerSitting.gd" id="20_3tbsm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s02wx"]
 resource_name = "Material"
@@ -161,72 +168,197 @@ shadow_mesh = SubResource("ArrayMesh_ok0i0")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w4wim"]
 points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
 
+[sub_resource type="Environment" id="Environment_ehrvc"]
+background_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vj4y"]
+font_size = 30
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tbsm"]
+
 [node name="kamar_rian" type="Node3D"]
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="PrologueManager" type="Node" parent="."]
+
+[node name="BagianKamar" type="Node3D" parent="."]
+
+[node name="Cube" type="MeshInstance3D" parent="BagianKamar"]
 transform = Transform3D(8.547666, 0, 0, 0, 0.1, 0, 0, 0, 7.7586575, 0, 0, 0)
 material_override = ExtResource("1_1tjqs")
 mesh = SubResource("ArrayMesh_4iuh1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BagianKamar/Cube"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BagianKamar/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dxs8v")
 
-[node name="Cube_004" type="MeshInstance3D" parent="."]
+[node name="Cube_004" type="MeshInstance3D" parent="BagianKamar"]
 transform = Transform3D(1.3883769e-06, 0, 0.1, 0, 4.0487795, 0, -7.7643657, 0, 1.7881396e-08, 8.44737, 4.040573, 0.00664562)
 material_override = SubResource("StandardMaterial3D_1tjqs")
 mesh = SubResource("ArrayMesh_g2qgy")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_004"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BagianKamar/Cube_004"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_004/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BagianKamar/Cube_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qv35m")
 
-[node name="Cube_001" type="MeshInstance3D" parent="."]
+[node name="Cube_001" type="MeshInstance3D" parent="BagianKamar"]
 transform = Transform3D(8.547666, 0, 0, 0, 0.1, 0, 0, 0, 7.7586575, 0, 8.17694, 0)
 material_override = ExtResource("2_03ilf")
 mesh = SubResource("ArrayMesh_2hrkq")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="BagianKamar/Cube_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BagianKamar/Cube_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_w4wim")
 
-[node name="kasur" parent="." instance=ExtResource("1_qv35m")]
+[node name="Furnitur" type="Node3D" parent="."]
+
+[node name="kasur" parent="Furnitur" instance=ExtResource("1_qv35m")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2032418, 1.1032794, 4.0552616)
 
-[node name="lemari" parent="." instance=ExtResource("2_w4wim")]
+[node name="lemari" parent="Furnitur" instance=ExtResource("2_w4wim")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89738, 3.0829368, 6.1343417)
 
-[node name="jendela" parent="." instance=ExtResource("3_rflv2")]
+[node name="jendela" parent="Furnitur" instance=ExtResource("3_rflv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.966486, 3.9115143, 1.2755377)
 
-[node name="meja" parent="." instance=ExtResource("4_daes6")]
+[node name="meja" parent="Furnitur" instance=ExtResource("4_daes6")]
 transform = Transform3D(1.38, 0, 0, 0, 1.38, 0, 0, 0, 1.38, -6.631078, 2.4292448, -4.40824)
 
-[node name="kursi" parent="." instance=ExtResource("5_awerp")]
-transform = Transform3D(1.215, 0, 0, 0, 1.215, 0, 0, 0, 1.215, -4.575839, 1.6030991, -4.0978374)
+[node name="kursi" parent="Furnitur" instance=ExtResource("5_awerp")]
+transform = Transform3D(1.215, 0, 0, 0, 1.215, 0, 0, 0, 1.215, -3.134466, 1.6030991, -4.0978374)
 
-[node name="kaca" parent="." instance=ExtResource("6_o6s1c")]
+[node name="kaca" parent="Furnitur" instance=ExtResource("6_o6s1c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6672895, 5.112138, -7.264282)
 
-[node name="rak" parent="." instance=ExtResource("7_xly2m")]
+[node name="rak" parent="Furnitur" instance=ExtResource("7_xly2m")]
 transform = Transform3D(-1.835, 0, 2.770773e-07, 0, 1.835, 0, -2.770773e-07, 0, -1.835, 7.092824, 1.3729577, -1.5933638)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7122159, 5.241124, -5.9771852)
+[node name="OmniLight3D" type="OmniLight3D" parent="Furnitur"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7122159, 7.583265, -1.359385)
 light_energy = 5.0
 omni_range = 42.657
 
-[node name="bantal_biasa" parent="." instance=ExtResource("11_03ilf")]
+[node name="bantal_biasa" parent="Furnitur" instance=ExtResource("11_03ilf")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 6.4054604, 2.3649998, 4.040639)
 
-[node name="pintu" parent="." instance=ExtResource("11_og6qo")]
+[node name="pintu" parent="Furnitur" instance=ExtResource("11_og6qo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.563127, 3.9021006, -6.0276065)
 
-[node name="Player" parent="." instance=ExtResource("12_og6qo")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3.0247526, -1.8636944)
+[node name="lampu_belajar" parent="Furnitur" instance=ExtResource("12_og6qo")]
+transform = Transform3D(0.3212411, 0, 0.94699746, 0, 1, 0, -0.94699746, 0, 0.3212411, -7.015266, 4.2790976, -2.9680624)
+
+[node name="Buku" type="Node3D" parent="Furnitur"]
+
+[node name="buku_tulis" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.828028, 2.536272, -3.0208676)
+
+[node name="buku_tulis2" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.91710186, 0, 0.39865294, 0, 1, 0, -0.39865294, 0, -0.91710186, -6.1227736, 2.5592406, -3.1577728)
+
+[node name="buku_tulis3" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.99211466, 0, -0.12533331, 0, 1, 0, 0.12533331, 0, -0.99211466, -5.7403865, 2.5592406, -2.334999)
+
+[node name="buku_tulis4" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.99999243, 0, 0.0038745478, 0, 1, 0, -0.0038745478, 0, -0.99999243, -7.396431, 2.5592406, -5.8318243)
+
+[node name="buku_tulis5" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.99999243, 0, 0.0038745478, 0, 1, 0, -0.0038745478, 0, -0.99999243, -7.396431, 2.5923438, -5.8318243)
+
+[node name="buku_tulis6" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.99999243, 0, 0.0038745478, 0, 1, 0, -0.0038745478, 0, -0.99999243, -7.396431, 2.524099, -3.5236394)
+
+[node name="buku_tulis7" parent="Furnitur/Buku" instance=ExtResource("13_lniri")]
+transform = Transform3D(-0.99999243, 0, 0.0038745478, 0, 1, 0, -0.0038745478, 0, -0.99999243, -7.5296035, 2.6262882, -5.506956)
+
+[node name="buku_pelajaran" parent="Furnitur/Buku" instance=ExtResource("14_mlr0t")]
+transform = Transform3D(-0.735, 0, -1.10981915e-07, 0, 0.735, 0, 1.10981915e-07, 0, -0.735, -6.118691, 2.5607533, -4.137359)
+
+[node name="StaticBody3D" parent="Furnitur/Buku/buku_pelajaran" index="1" groups=["buku"]]
+
+[node name="buku_pelajaran2" parent="Furnitur/Buku" instance=ExtResource("15_2ya7q")]
+transform = Transform3D(-0.7099555, 0, 0.19023207, 0, 0.735, 0, -0.19023207, 0, -0.7099555, -6.8371224, 2.6524582, -5.8645625)
+
+[node name="buku_pelajaran3" parent="Furnitur/Buku" instance=ExtResource("16_njx6i")]
+transform = Transform3D(-0.6750783, 0, -0.29067886, 0, 0.735, 0, 0.29067886, 0, -0.6750783, -7.5020423, 2.5435097, -3.964223)
+
+[node name="Head" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ehrvc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StudyBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.915
+anchor_right = 0.499
+anchor_bottom = 0.915
+offset_left = -1.0800171
+offset_top = -13.200012
+offset_right = 2.919983
+offset_bottom = 13.799988
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.5
+offset_top = -2.5
+offset_right = 2.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrompLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55200005
+anchor_right = 0.5
+anchor_bottom = 0.55200005
+offset_left = -19.0
+offset_top = -11.160034
+offset_right = 21.0
+offset_bottom = 11.839966
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+label_settings = SubResource("LabelSettings_1vj4y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_lcj4d")
+
+[node name="HP" parent="." instance=ExtResource("17_b6l55")]
+transform = Transform3D(0.45431706, 0, 0.8908402, 0, 1, 0, -0.8908402, 0, 0.45431706, -5.758227, 2.5280335, -5.2656693)
+
+[node name="StaticBody3D" parent="HP" index="0" groups=["hp"]]
+
+[node name="MeshInstance3D" parent="HP/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18452048, 0, -0.07523966)
+surface_material_override/0 = SubResource("StandardMaterial3D_3tbsm")
+
+[node name="PlayerSitting" type="Node3D" parent="." node_paths=PackedStringArray("prompt_label", "study_bar", "sfx_notif", "hp_mesh")]
+script = ExtResource("20_3tbsm")
+prompt_label = NodePath("../CanvasLayer/PrompLabel")
+study_bar = NodePath("../CanvasLayer/StudyBar")
+sfx_notif = NodePath("../AudioStreamPlayer")
+hp_mesh = NodePath("../HP/StaticBody3D/MeshInstance3D")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerSitting"]
+transform = Transform3D(-4.371138e-08, 2.9802322e-08, 1, -3.5527137e-15, 1, -2.9802322e-08, -1, -5.3290705e-15, -4.371138e-08, -4.924762, 4.665562, -4.0880013)
+
+[node name="RayCast3D" type="RayCast3D" parent="PlayerSitting/Camera3D"]
+target_position = Vector3(0, 0, -5)
+collide_with_areas = true
+
+[editable path="Furnitur/Buku/buku_pelajaran"]
+[editable path="HP"]

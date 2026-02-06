@@ -1,7 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://hmrjgjgp1ume"]
+[gd_scene load_steps=9 format=3 uid="uid://hmrjgjgp1ume"]
 
+[ext_resource type="Script" uid="uid://fhtuwc5h01ng" path="res://_Scripts/Managers/PrologueManager.gd" id="1_7ydi5"]
+[ext_resource type="Script" uid="uid://dwj7vbnvu81uy" path="res://_Scripts/Entities/KameraKamarRian.gd" id="1_dxsab"]
 [ext_resource type="PackedScene" uid="uid://bvvakhete5b4u" path="res://Scenes/Levels/Rooms/kamar_rian.tscn" id="1_ypwo2"]
+[ext_resource type="AudioStream" uid="uid://dctso4748v6a" path="res://Audio/SFX/notif_hp.mp3" id="3_dxsab"]
+
+[sub_resource type="Environment" id="Environment_ypwo2"]
+background_mode = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_srwwg"]
+size = Vector3(0.375, 0.035, 0.68)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srwwg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxsab"]
+size = Vector3(0.375, 0.035, 0.68)
 
 [node name="KamarRian" type="Node3D"]
+visible = false
+
+[node name="PrologueManager" type="Node" parent="." node_paths=PackedStringArray("study_bar", "hp_mesh", "sfx_notif")]
+script = ExtResource("1_7ydi5")
+study_bar = NodePath("../CanvasLayer/StudyBar")
+hp_mesh = NodePath("../StaticBody3D2/MeshInstance3D")
+sfx_notif = NodePath("../AudioStreamPlayer")
+
+[node name="Head" type="Node3D" parent="."]
+script = ExtResource("1_dxsab")
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(-3.0908613e-08, -0.70710677, 0.7071068, -3.0908616e-08, 0.7071068, 0.70710677, -1, -5.3290705e-15, -4.371138e-08, -4.924762, 4.665562, -4.0880013)
 
 [node name="kamar_rian" parent="." instance=ExtResource("1_ypwo2")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ypwo2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StudyBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.915
+anchor_right = 0.499
+anchor_bottom = 0.915
+offset_left = -1.0800171
+offset_top = -13.200012
+offset_right = 2.919983
+offset_bottom = 13.799988
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dxsab")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.3656729, 0, 0.93074346, 0, 1, 0, -0.93074346, 0, 0.3656729, -5.7479286, 2.5295885, -5.326236)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_srwwg")
+surface_material_override/0 = SubResource("StandardMaterial3D_srwwg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_dxsab")

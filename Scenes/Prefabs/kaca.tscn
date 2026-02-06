@@ -35,6 +35,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ur524")
 shape = SubResource("ConcavePolygonShape3D_ur524")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9760132, 4.97464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4664917, -0.44034576, 1.828659)
 update_mode = 1
-size = Vector3(20, 8.849487, 10.05072)
+size = Vector3(6.6275635, 5.443802, 3.7587585)

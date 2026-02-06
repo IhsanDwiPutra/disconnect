@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bve76fjntjhtt"]
+
+[ext_resource type="PackedScene" uid="uid://eweu4am1b00e" path="res://Art/Models/buku_pelajaran.glb" id="1_ayc1p"]
+[ext_resource type="Texture2D" uid="uid://w4iws21p0014" path="res://Art/Img/buku_pelajaran1.png" id="2_wephq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qjmbp"]
+albedo_texture = ExtResource("2_wephq")
+uv1_scale = Vector3(3.935, 3.995, 1)
+uv1_offset = Vector3(0.52, 0.005, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d1hb7"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="buku_pelajaran" instance=ExtResource("1_ayc1p")]
+
+[node name="Cube_008" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_qjmbp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_008" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_008/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_d1hb7")
