@@ -9,6 +9,7 @@ extends Node3D
 @export var study_bar: ProgressBar
 @export var sfx_notif: AudioStreamPlayer
 @export var hp_mesh: MeshInstance3D
+@export var mobile_ui : Control
 
 # --- Setting Kamera ---
 var mouse_sensitivity = 0.002
@@ -83,8 +84,10 @@ func trigger_hp():
 	print("HP BUNYI! GANGGUAN DATANG!")
 
 func ambil_hp():
-	print("Player mengambil HP -> Pindah Scene Ke Chapter 1")
-	get_tree().change_scene_to_file("res://Scenes/Levels/KamarPagi.tscn")
+	print("Membuka HP...")
+	
+	set_process_input(false)
+	mobile_ui.buka_hp()
 
 func matikan_layar_hp():
 	if hp_mesh:
